@@ -16,6 +16,8 @@ predictions = results.pred[0]
 
 for *box, conf, cls in predictions: 
     x1, y1, x2, y2 = map(int, box)  
+    x1_base = x1
+    y1_base = y1
 
     # Tespit edilen plaka kesilir
     cropped_img = img[y1:y2, x1:x2] 
@@ -45,10 +47,10 @@ for *box, conf, cls in predictions:
 
     # Etiketleri birleştirin ve görüntüye yazdırın
     label_text = " ".join(object_labels)
-    cv2.putText(cropped_img, label_text, (10, 30), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 255), 1)
+    cv2.putText(img, label_text, (x1_base, y1_base), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 1)
 
     # Kesilen ve işlenen görüntüyü gösterin
-    cv2.imshow("Cropped Image", cropped_img)
+    cv2.imshow("Cropped Image", img)
     cv2.waitKey(0) 
 
 # Pencereleri kapat
