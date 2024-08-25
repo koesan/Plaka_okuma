@@ -47,7 +47,7 @@ for *box, conf, cls in predictions:
 
     # Etiketleri birleştirin ve görüntüye yazdırın
     label_text = " ".join(object_labels)
-    cv2.putText(img, label_text, (x1_base, y1_base), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 1)
+    cv2.putText(img, label_text, (x1_base, y1_base), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
 
     # Kesilen ve işlenen görüntüyü gösterin
     cv2.imshow("Cropped Image", img)
